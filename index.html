@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Raquel Oliveira | Fonoaudióloga | Pipa Espaço Terapêutico</title>
+    <meta name="description" content="Fonoaudióloga Raquel Oliveira - Pipa Espaço Terapêutico. Agende sua consulta em Belo Horizonte.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F5F0E8;
+            --bg-secondary: #FFFFFF;
+            --bg-card: rgba(255, 255, 255, 0.88);
+            --text-primary: #3D3D3D;
+            --text-secondary: #6B6B6B;
+            --text-muted: #9A9A9A;
+            --pipa-mustard: #C4953A;
+            --pipa-mustard-light: #D4A84A;
+            --pipa-sage: #8FA090;
+            --pipa-sage-light: #A3B5A3;
+            --pipa-terracotta: #C07A5A;
+            --pipa-terracotta-light: #D08E6E;
+            --pipa-sky: #8BA8C4;
+            --pipa-sky-light: #A0BED8;
+            --pipa-lavender: #A89BB5;
+            --pipa-cream: #E8DDD0;
+            --pipa-rose: #C9A9A0;
+            --pipa-mint: #A8C4B8;
+            --pipa-peach: #E8C4A8;
+            --border-light: rgba(196, 149, 58, 0.15);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 24px 16px;
+            overflow-x: hidden;
+        }
+
+        /* Background decorative dots - inspired by Pipa wall */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-dot {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.10;
+        }
+
+        /* Row 1 - Top area */
+        .bg-dot-1 { width: 70px; height: 70px; background: var(--pipa-mustard); top: 2%; left: 5%; }
+        .bg-dot-2 { width: 45px; height: 45px; background: var(--pipa-sage); top: 4%; right: 8%; }
+        .bg-dot-3 { width: 55px; height: 55px; background: var(--pipa-sky); top: 8%; left: 25%; }
+        .bg-dot-4 { width: 35px; height: 35px; background: var(--pipa-terracotta); top: 6%; right: 30%; }
+        .bg-dot-5 { width: 60px; height: 60px; background: var(--pipa-lavender); top: 12%; left: 50%; }
+        .bg-dot-6 { width: 40px; height: 40px; background: var(--pipa-mustard); top: 3%; left: 70%; }
+        .bg-dot-7 { width: 50px; height: 50px; background: var(--pipa-rose); top: 10%; right: 5%; }
+        .bg-dot-8 { width: 30px; height: 30px; background: var(--pipa-mint); top: 15%; left: 12%; }
+        .bg-dot-9 { width: 65px; height: 65px; background: var(--pipa-peach); top: 1%; right: 45%; }
+        .bg-dot-10 { width: 38px; height: 38px; background: var(--pipa-sage); top: 14%; right: 22%; }
+
+        /* Row 2 - Middle area */
+        .bg-dot-11 { width: 55px; height: 55px; background: var(--pipa-sky); top: 22%; left: 3%; }
+        .bg-dot-12 { width: 42px; height: 42px; background: var(--pipa-mustard); top: 28%; right: 8%; }
+        .bg-dot-13 { width: 48px; height: 48px; background: var(--pipa-terracotta); top: 25%; left: 40%; }
+        .bg-dot-14 { width: 35px; height: 35px; background: var(--pipa-lavender); top: 30%; right: 35%; }
+        .bg-dot-15 { width: 58px; height: 58px; background: var(--pipa-rose); top: 20%; left: 65%; }
+        .bg-dot-16 { width: 32px; height: 32px; background: var(--pipa-mint); top: 35%; left: 8%; }
+        .bg-dot-17 { width: 45px; height: 45px; background: var(--pipa-peach); top: 32%; right: 15%; }
+        .bg-dot-18 { width: 52px; height: 52px; background: var(--pipa-sage); top: 38%; left: 55%; }
+        .bg-dot-19 { width: 40px; height: 40px; background: var(--pipa-mustard); top: 26%; left: 18%; }
+        .bg-dot-20 { width: 36px; height: 36px; background: var(--pipa-sky); top: 36%; right: 50%; }
+
+        /* Row 3 - Lower middle */
+        .bg-dot-21 { width: 50px; height: 50px; background: var(--pipa-terracotta); top: 45%; left: 5%; }
+        .bg-dot-22 { width: 60px; height: 60px; background: var(--pipa-lavender); top: 48%; right: 3%; }
+        .bg-dot-23 { width: 38px; height: 38px; background: var(--pipa-mustard); top: 42%; left: 35%; }
+        .bg-dot-24 { width: 48px; height: 48px; background: var(--pipa-rose); top: 50%; left: 60%; }
+        .bg-dot-25 { width: 33px; height: 33px; background: var(--pipa-mint); top: 44%; right: 25%; }
+        .bg-dot-26 { width: 55px; height: 55px; background: var(--pipa-peach); top: 52%; left: 20%; }
+        .bg-dot-27 { width: 42px; height: 42px; background: var(--pipa-sage); top: 46%; right: 45%; }
+        .bg-dot-28 { width: 36px; height: 36px; background: var(--pipa-sky); top: 55%; left: 45%; }
+        .bg-dot-29 { width: 50px; height: 50px; background: var(--pipa-mustard); top: 40%; right: 12%; }
+        .bg-dot-30 { width: 30px; height: 30px; background: var(--pipa-terracotta); top: 54%; right: 60%; }
+
+        /* Row 4 - Bottom area */
+        .bg-dot-31 { width: 65px; height: 65px; background: var(--pipa-lavender); top: 62%; left: 8%; }
+        .bg-dot-32 { width: 45px; height: 45px; background: var(--pipa-rose); top: 65%; right: 8%; }
+        .bg-dot-33 { width: 55px; height: 55px; background: var(--pipa-mint); top: 60%; left: 50%; }
+        .bg-dot-34 { width: 38px; height: 38px; background: var(--pipa-mustard); top: 68%; right: 30%; }
+        .bg-dot-35 { width: 48px; height: 48px; background: var(--pipa-sky); top: 64%; left: 25%; }
+        .bg-dot-36 { width: 42px; height: 42px; background: var(--pipa-peach); top: 70%; right: 50%; }
+        .bg-dot-37 { width: 35px; height: 35px; background: var(--pipa-sage); top: 58%; left: 70%; }
+        .bg-dot-38 { width: 58px; height: 58px; background: var(--pipa-terracotta); top: 72%; left: 5%; }
+        .bg-dot-39 { width: 40px; height: 40px; background: var(--pipa-lavender); top: 66%; right: 15%; }
+        .bg-dot-40 { width: 50px; height: 50px; background: var(--pipa-mustard); top: 75%; left: 40%; }
+
+        /* Row 5 - Very bottom */
+        .bg-dot-41 { width: 45px; height: 45px; background: var(--pipa-rose); top: 78%; right: 5%; }
+        .bg-dot-42 { width: 55px; height: 55px; background: var(--pipa-mint); top: 82%; left: 15%; }
+        .bg-dot-43 { width: 38px; height: 38px; background: var(--pipa-sky); top: 80%; right: 35%; }
+        .bg-dot-44 { width: 48px; height: 48px; background: var(--pipa-peach); top: 85%; left: 55%; }
+        .bg-dot-45 { width: 42px; height: 42px; background: var(--pipa-sage); top: 88%; right: 20%; }
+        .bg-dot-46 { width: 35px; height: 35px; background: var(--pipa-terracotta); top: 90%; left: 30%; }
+        .bg-dot-47 { width: 50px; height: 50px; background: var(--pipa-lavender); top: 86%; right: 55%; }
+        .bg-dot-48 { width: 40px; height: 40px; background: var(--pipa-mustard); top: 92%; left: 8%; }
+        .bg-dot-49 { width: 60px; height: 60px; background: var(--pipa-rose); top: 95%; right: 40%; }
+        .bg-dot-50 { width: 33px; height: 33px; background: var(--pipa-mint); top: 94%; left: 70%; }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-secondary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 0 3px var(--pipa-mustard);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar-wrapper:hover .avatar {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12), 0 0 0 4px var(--pipa-mustard-light);
+        }
+
+        .avatar-ring {
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--pipa-mustard);
+            border-right-color: var(--pipa-mustard);
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--pipa-sage);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+        }
+
+        .profile-clinic {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-clinic::before {
+            content: '';
+            display: inline-block;
+            width: 6px; height: 6px;
+            background: var(--pipa-mustard);
+            border-radius: 50%;
+        }
+
+        /* Divider */
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--pipa-mustard), transparent);
+            margin: 0 auto 28px;
+            border-radius: 1px;
+        }
+
+        /* Quotes Section - SIDE BY SIDE */
+        .quotes-section {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            margin-bottom: 28px;
+            justify-content: space-between;
+        }
+
+        .quote-card {
+            flex: 1;
+            min-width: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            background: var(--bg-secondary);
+        }
+
+        .quote-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .quote-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 3/4;
+        }
+
+        .quote-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.15s both; }
+        .quote-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.25s both; }
+
+        /* Links Section */
+        .links-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--pipa-mustard);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(196, 149, 58, 0.3);
+        }
+
+        .link-card:hover::before { opacity: 1; }
+        .link-card:active { transform: translateY(0) scale(0.98); }
+
+        .link-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-icon { transform: scale(1.1); }
+
+        .link-icon svg { width: 22px; height: 22px; }
+
+        .link-icon.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        .link-icon.whatsapp svg { fill: white; }
+
+        .link-icon.instagram {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        .link-icon.instagram svg { fill: white; }
+
+        .link-icon.maps {
+            background: linear-gradient(135deg, #EA4335, #FBBC05);
+        }
+        .link-icon.maps svg { fill: white; }
+
+        .link-icon.info {
+            background: linear-gradient(135deg, var(--pipa-terracotta), var(--pipa-terracotta-light));
+        }
+        .link-icon.info svg { fill: white; }
+
+        .link-icon.pipa {
+            background: linear-gradient(135deg, var(--pipa-cream), #DDD0C0);
+        }
+        .link-icon.pipa svg { fill: var(--text-primary); }
+
+        .link-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .link-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .link-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .link-arrow {
+            width: 20px; height: 20px;
+            color: var(--pipa-mustard);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Featured Card - WhatsApp */
+        .link-card.featured {
+            background: linear-gradient(135deg, var(--pipa-sage), var(--pipa-sage-light));
+            border: none;
+            box-shadow: 0 4px 20px rgba(143, 160, 144, 0.3);
+        }
+
+        .link-card.featured .link-title,
+        .link-card.featured .link-subtitle { color: white; }
+        .link-card.featured .link-arrow { color: white; }
+        .link-card.featured::before { display: none; }
+        .link-card.featured:hover {
+            box-shadow: 0 8px 30px rgba(143, 160, 144, 0.4);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .logo-pipa {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+            padding: 8px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .logo-pipa:hover { transform: scale(1.05); }
+
+        .logo-pipa img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer-text strong {
+            color: var(--pipa-mustard);
+            font-weight: 600;
+        }
+
+        /* Stagger animation */
+        .link-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.35s both; }
+        .link-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.42s both; }
+        .link-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.49s both; }
+        .link-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.56s both; }
+        .link-card:nth-child(5) { animation: fadeInUp 0.6s ease-out 0.63s both; }
+        .link-card:nth-child(6) { animation: fadeInUp 0.6s ease-out 0.70s both; }
+
+        /* Responsive */
+        @media (max-width: 380px) {
+            .avatar { width: 120px; height: 120px; }
+            .profile-name { font-size: 1.4rem; }
+            .link-card { padding: 14px 16px; }
+            .quotes-section { gap: 8px; }
+            .quote-card { border-radius: 12px; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--pipa-mustard-light); border-radius: 3px; }
+
+        /* Tap highlight removal */
+        * { -webkit-tap-highlight-color: transparent; }
+    </style>
+    <base target="_blank">
+<base target="_blank">
+</head>
+<body>
+    <!-- Background Decorations - 50 Bolinhas da Pipa -->
+    <div class="bg-decoration">
+        <div class="bg-dot bg-dot-1"></div>
+        <div class="bg-dot bg-dot-2"></div>
+        <div class="bg-dot bg-dot-3"></div>
+        <div class="bg-dot bg-dot-4"></div>
+        <div class="bg-dot bg-dot-5"></div>
+        <div class="bg-dot bg-dot-6"></div>
+        <div class="bg-dot bg-dot-7"></div>
+        <div class="bg-dot bg-dot-8"></div>
+        <div class="bg-dot bg-dot-9"></div>
+        <div class="bg-dot bg-dot-10"></div>
+        <div class="bg-dot bg-dot-11"></div>
+        <div class="bg-dot bg-dot-12"></div>
+        <div class="bg-dot bg-dot-13"></div>
+        <div class="bg-dot bg-dot-14"></div>
+        <div class="bg-dot bg-dot-15"></div>
+        <div class="bg-dot bg-dot-16"></div>
+        <div class="bg-dot bg-dot-17"></div>
+        <div class="bg-dot bg-dot-18"></div>
+        <div class="bg-dot bg-dot-19"></div>
+        <div class="bg-dot bg-dot-20"></div>
+        <div class="bg-dot bg-dot-21"></div>
+        <div class="bg-dot bg-dot-22"></div>
+        <div class="bg-dot bg-dot-23"></div>
+        <div class="bg-dot bg-dot-24"></div>
+        <div class="bg-dot bg-dot-25"></div>
+        <div class="bg-dot bg-dot-26"></div>
+        <div class="bg-dot bg-dot-27"></div>
+        <div class="bg-dot bg-dot-28"></div>
+        <div class="bg-dot bg-dot-29"></div>
+        <div class="bg-dot bg-dot-30"></div>
+        <div class="bg-dot bg-dot-31"></div>
+        <div class="bg-dot bg-dot-32"></div>
+        <div class="bg-dot bg-dot-33"></div>
+        <div class="bg-dot bg-dot-34"></div>
+        <div class="bg-dot bg-dot-35"></div>
+        <div class="bg-dot bg-dot-36"></div>
+        <div class="bg-dot bg-dot-37"></div>
+        <div class="bg-dot bg-dot-38"></div>
+        <div class="bg-dot bg-dot-39"></div>
+        <div class="bg-dot bg-dot-40"></div>
+        <div class="bg-dot bg-dot-41"></div>
+        <div class="bg-dot bg-dot-42"></div>
+        <div class="bg-dot bg-dot-43"></div>
+        <div class="bg-dot bg-dot-44"></div>
+        <div class="bg-dot bg-dot-45"></div>
+        <div class="bg-dot bg-dot-46"></div>
+        <div class="bg-dot bg-dot-47"></div>
+        <div class="bg-dot bg-dot-48"></div>
+        <div class="bg-dot bg-dot-49"></div>
+        <div class="bg-dot bg-dot-50"></div>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="avatar-wrapper">
+                <div class="avatar-ring"></div>
+                <img src="https://res.cloudinary.com/dkbfz4jgv/image/upload/v1780941131/WhatsApp_Image_2026-06-08_at_14.46.39_gdiwkx.jpg" 
+                     alt="Raquel Oliveira - Fonoaudióloga" 
+                     class="avatar"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Raquel+Oliveira&background=C4953A&color=fff&size=400'">
+            </div>
+            <h1 class="profile-name">Raquel Oliveira</h1>
+            <p class="profile-title">Fonoaudióloga</p>
+            <p class="profile-clinic">Pipa Espaço Terapêutico</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Quotes Section - SIDE BY SIDE -->
+        <div class="quotes-section">
+            <div class="quote-card">
+                <img src="https://res.cloudinary.com/dkbfz4jgv/image/upload/v1780941131/quadro_descobrir_pipa.jpg" 
+                     alt="Toda criança merece descobrir a sua própria forma de se expressar"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="quote-card">
+                <img src="https://res.cloudinary.com/dkbfz4jgv/image/upload/v1780941131/quadro_comunicar_pipa.jpg" 
+                     alt="Comunicar é construir caminhos entre o coração e o mundo"
+                     onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5531988718068?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Fono%20Raquel%20Oliveira.%20Poderia%20me%20ajudar%3F" 
+               class="link-card featured" 
+               rel="noopener noreferrer">
+                <div class="link-icon whatsapp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Agendar pelo WhatsApp</span>
+                    <span class="link-subtitle">(31) 98871-8068 · Resposta rápida</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <!-- Instagram Pipa -->
+            <a href="https://instagram.com/pipaespacoterapeutico" 
+               class="link-card" 
+               rel="noopener noreferrer">
+                <div class="link-icon instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Instagram da Clínica</span>
+                    <span class="link-subtitle">@pipaespacoterapeutico</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <!-- Instagram Pessoal -->
+            <a href="https://instagram.com/fono.raqueloliveira" 
+               class="link-card" 
+               rel="noopener noreferrer">
+                <div class="link-icon instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Instagram Pessoal</span>
+                    <span class="link-subtitle">@fono.raqueloliveira</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <!-- Endereço -->
+            <a href="https://www.google.com/maps/search/?api=1&query=R.+Joaquim+Gonçalves+Braga,+42+A+-+Santa+Amelia,+Belo+Horizonte" 
+               class="link-card" 
+               rel="noopener noreferrer">
+                <div class="link-icon maps">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Como Chegar</span>
+                    <span class="link-subtitle">R. Joaquim Gonçalves Braga, 42 A - Santa Amélia</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <!-- Sobre a Clínica -->
+            <a href="https://instagram.com/pipaespacoterapeutico" 
+               class="link-card" 
+               rel="noopener noreferrer">
+                <div class="link-icon info">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Sobre a Pipa</span>
+                    <span class="link-subtitle">Conheça nosso espaço terapêutico</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <!-- Site Pipa -->
+            <a href="https://instagram.com/pipaespacoterapeutico" 
+               class="link-card" 
+               rel="noopener noreferrer">
+                <div class="link-icon pipa">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="link-content">
+                    <span class="link-title">Site da Clínica</span>
+                    <span class="link-subtitle">Em breve · Siga no Instagram por enquanto</span>
+                </div>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-section">
+            <div class="logo-pipa">
+                <img src="https://res.cloudinary.com/dkbfz4jgv/image/upload/v1780941131/logo_pipa_espaco_terapeutico.jpg" 
+                     alt="Pipa Espaço Terapêutico"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Pipa&background=E8DDD0&color=3D3D3D&size=200'">
+            </div>
+            <p class="footer-text">
+                <strong>Pipa Espaço Terapêutico</strong><br>
+                R. Joaquim Gonçalves Braga, 42 A - Santa Amélia<br>
+                Belo Horizonte · MG
+            </p>
+            <p class="footer-text" style="font-size: 0.7rem; margin-top: -8px; line-height: 1.8;">
+                © 2026 · Ajudo crianças a destravarem a fala!<br>
+                Comunicação que gera liberdade e autonomia!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
